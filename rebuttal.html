@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+​
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+​
+    <title>Anonymous RSS Submission 393</title>
+​
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+​
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css">
+​
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+​
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    
+    <script src="js/app.js"></script>
+</head>
+​
+<body>
+    <div class="container" id="main">
+        <br>
+        <div class="row">
+            <h2 class="col-md-12 text-center">
+              <b>Author Response: <br>Learning Humanoid Locomotion with Transformers</b>
+            </h2>
+        </div>
+        <p style="margin:0.5em;"></p>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+                        Author Names Omitted for Anonymous Review.
+                    </li><br>
+                    <p style="margin:0.25em;"></p>
+                    <li>
+                        Paper-ID [393]
+                    </li><br>
+                    <p style="margin:0.25em;"></p>
+                </ul>
+            </div>
+​
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>Massively Parallel Training in Simulation</h3>
+                <br>
+                <center>
+                    <video id="v2" width="80%" muted autoplay loop playsinline controls>
+                        <source src="media/sim.mp4" type="video/mp4">
+                    </video>
+                </center>
+                <div class="caption">
+                    <p> 
+                        We implement custom simulation of closed loop chains that enables us to simulate the Digit robot in Isaac Gym 
+                        which was not possible before (please see Section IV B of the paper for details).
+                        We further implement distributed training that allows us to parallelize training
+                        across multiple GPUs and thousands of enviroments. These combined, enable us to collect 10 Billion
+                        samples in a day on a single machine. To facilitate future research, we will make all of our system code publicly available.
+                    </p>
+                </div>
+                <br>
+            </div>
+        </div>
+​
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>Transformers for Humanoid Locomotion</h3>
+                <center>
+                    <video id="v1" width="85%" muted autoplay loop playsinline controls>
+                        <source src="media/method.mp4" type="video/mp4">
+                    </video>
+                </center>
+                <div class="caption">
+                  <!--<p> Our controller is a causal Transformer trained by autoregressive prediction of future actions from the observation-action history. </p>-->
+                    <p>
+                        We train a Transformer-based controller that predicts future actions autoregressively from the history of past observations and actions.
+                        We hypothesize that the history of observations and actions implicitly encodes the information about the world that a powerful Transformer model can use to adapt its behavior dynamically at test time.
+                        For example, the model can use the history of desired vs actual states to figure out how to adjust its actions to better achieve future states.
+                    <p>
+                </div>
+                <br>
+            </div>
+        </div>
+​
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>Attention Map Visualization</h3>
+                <p> 
+                    Our Transformer has a context length of 16 and 4 self-attention heads. To better understand our controller,
+                    we visualize how the attention changes over time while the robot is walking. The last index is the most recent.
+                    We observe that our model pays attention from close to far history information across time and is well aligned with the walking phase cycle.
+                </p>
+                <br>
+                <center>
+                    <video id="v3" width="85%" muted autoplay loop playsinline controls>
+                        <source src="media/attention-video-256-tight-xlabels.mp4" type="video/mp4" />
+                    </video>
+                </center>
+                <div class="caption">
+                    <p> 
+                        The robot is walking on flat terrain with a commanded forward velocity at 0.5 m/s.
+                    </p>
+                </div>
+                <br>
+            </div>
+        </div>
+​
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <br>
+                <center>
+                    <video id="v4" width="85%" muted autoplay loop playsinline controls>
+                        <source src="media/rough_attention-video-256-tight-xlabels.mp4" type="video/mp4" />
+                    </video>
+                </center>
+                <div class="caption">
+                    <p> 
+                        The robot is walking on rough terrain with a commanded forward velocity at 0.5 m/s.
+                    </p>
+                </div>
+                <br>
+            </div>
+        </div>
+​
+        <br>
+        <br> 
+​
+    </div>
+</body>
+</html>
